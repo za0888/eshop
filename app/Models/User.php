@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\enums\UserStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -44,4 +45,10 @@ class User extends Authenticatable
         'password' => 'hashed',
         'status'=>UserStatus::class,
     ];
+
+//    user/manager is a firtual stock for products
+    public function stock() : MorphMany
+    {
+        return $this->morphMany(Product::class,'stockable');
+    }
 }

@@ -21,3 +21,7 @@ ________________
 Managers/users and guests are different tables
 for security reasons
 ----------------
+product is a child for  stock and  user(manager) so polymorphic one to one(
+
+one start page for guest
+another for managers

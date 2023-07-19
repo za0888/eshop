@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Product extends Model
 {
@@ -31,5 +32,15 @@ class Product extends Model
     {
         return $this->hasMany(Price::class);
 
+    }
+
+    public function user()
+    {
+        return $this->morphOne(User::class,'stockable');
+    }
+
+    public function stockable(): MorphTo
+    {
+        return $this->morphTo();
     }
 }

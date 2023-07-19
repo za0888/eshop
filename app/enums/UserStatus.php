@@ -6,7 +6,7 @@ enum UserStatus:string
 
 {
     case Administrator='administrator';
-    case Operator='operator';
+    case Manager='manager';
     case Guest='guest';
 }
 

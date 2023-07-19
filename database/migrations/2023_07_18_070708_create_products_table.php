@@ -18,6 +18,10 @@ return new class extends Migration
             $table->float('price');
             $table->json('properties')->nullable();
             $table->integer('ammount');
+
+//            products is stocked or in the stockk  or with the user/manager
+            $table->integer('stockable_id');
+            $table->string('stockable_type');
         });
     }
 
