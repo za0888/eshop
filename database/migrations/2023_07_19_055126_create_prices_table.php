@@ -20,7 +20,10 @@ return new class extends Migration
             $table->date('end');
 //            active, archiv
             $table->string('status');
-            $table->foreignIdFor(Product::class);
+            $table->foreignIdFor(Product::class)
+                ->constrained()
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
         });
     }
 

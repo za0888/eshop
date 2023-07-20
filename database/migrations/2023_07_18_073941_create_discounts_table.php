@@ -19,7 +19,10 @@ return new class extends Migration
             $table->date('start')->nullable();
             $table->date('end')->nullable();
             $table->float('number')->nullable();
-            $table->foreignIdFor(Product::class);
+            $table->foreignIdFor(Product::class)
+                ->constrained()
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
 
 
             $table->timestamps();
