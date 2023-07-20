@@ -11,21 +11,22 @@ class Price extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
-      'start',
-      'end',
-      'status',
-      'number'
+    protected $fillable = [
+        'start',
+        'end',
+        'status',
+        'number',
+        'product_id'
     ];
     protected $dateFormat = 'U';
 
-    protected $casts=[
-        'start'=>'date',
-        'end'=>'date',
-        'status'=>PriceStatus::class,
+    protected $casts = [
+        'start' => 'date',
+        'end' => 'date',
+        'status' => PriceStatus::class,
     ];
 
-    public function product() : BelongsTo
+    public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class)->withDefault();
     }

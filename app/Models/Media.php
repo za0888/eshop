@@ -6,25 +6,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Discount extends Model
+class Media extends Model
 {
     use HasFactory;
-
-    protected $fillable=[
-        'name',
-        'start',
-        'end',
-        'number',
+    protected $fillable = [
+        'path',
+        'nameOriginal',
+        'size',
+        'hashFile',
+        'fileExtension',
         'product_id'
     ];
-
-    protected $casts=[
-        'start'=>'date',
-        'end'=>'date',
-
-    ];
-
-    public function product():BelongsTo
+    public function product() :BelongsTo
     {
         return $this->belongsTo(Product::class)->withDefault();
     }

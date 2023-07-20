@@ -16,6 +16,8 @@ class Product extends Model
         'price',
         'amount',
         'properties',
+        'order_id',
+        'stock_id'
     ];
 
     protected $with=['price'];
@@ -43,6 +45,11 @@ class Product extends Model
     public function discounts(): HasMany
     {
         return $this->hasMany(Discount::class);
+    }
+
+    public function Media() :HasMany
+    {
+        return $this->hasMany(Media::class);
     }
 
 
