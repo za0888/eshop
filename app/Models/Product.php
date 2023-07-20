@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -17,14 +18,20 @@ class Product extends Model
         'number_in_stock',
         'properties',
         'order_id',
-        'stock_id'
+        'stock_id',
+        'category_id',
     ];
 
-    protected $with=['price'];
+    protected $with = ['price'];
 
     protected $casts = [
         'propertis' => 'array'
     ];
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class)->withDefault();
+    }
 
     public function orders(): BelongsToMany
     {
@@ -47,7 +54,7 @@ class Product extends Model
         return $this->hasMany(Discount::class);
     }
 
-    public function Media() :HasMany
+    public function Media(): HasMany
     {
         return $this->hasMany(Media::class);
     }
