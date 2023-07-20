@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Product;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,6 +19,8 @@ return new class extends Migration
             $table->date('start')->nullable();
             $table->date('end')->nullable();
             $table->float('number')->nullable();
+            $table->foreignIdFor(Product::class);
+
 
             $table->timestamps();
         });
