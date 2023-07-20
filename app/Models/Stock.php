@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\enums\StockStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,14 +16,16 @@ class Stock extends Model
 
     protected $fillable = ['name'];
 
-    protected $with=['user'];
+    protected $casts = ['status' => StockStatus::class];
 
-    public function manager() : HasOne
+    protected $with = ['user'];
+
+    public function user(): HasOne
     {
-        return $this->hasOne(Manager::class);
+        return $this->hasOne(User::class);
     }
 
-    public function products() :HasMany
+    public function products(): HasMany
     {
         return $this->hasMany(Product::class);
     }
@@ -30,9 +33,9 @@ class Stock extends Model
 
 
     //    stock if not main is a virtual stock for products
-/*
-    public function stock() : MorphMany
-    {
-        return $this->morphMany(Product::class,'stockable');
-    }*/
+    /*
+        public function stock() : MorphMany
+        {
+            return $this->morphMany(Product::class,'stockable');
+        }*/
 }
