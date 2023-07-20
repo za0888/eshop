@@ -46,9 +46,14 @@ class User extends Authenticatable
         'status'=>UserStatus::class,
     ];
 
-//    user/manager is a firtual stock for products
+    public function stock()
+    {
+        return $this->belongsTo(Stock::class)->withDefault();
+    }
+
+/*//    user/manager is a firtual stock for products
     public function stock() : MorphMany
     {
         return $this->morphMany(Product::class,'stockable');
-    }
+    }*/
 }

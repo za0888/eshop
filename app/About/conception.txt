@@ -21,7 +21,21 @@ ________________
 Managers/users and guests are different tables
 for security reasons
 ----------------
-product is a child for  stock and  user(manager) so polymorphic one to one(
+??????????
+1 variant:product is a child for  stock and  user(manager)
+ so polymorphic one to one(
 
+2 variant:
+we have  stock   case Main = 'main';
+                   case Order = 'order';
+                 ???  case Transport = 'transport';
+and each manager as stock( after button send has been
+ pressed by manager one become responsible for the product)
+ So we have 2 basic stock plus number of stocks equal to nember
+  of sail managers
+  models Stock and User related as one to one
+  Stock Product ont to many
+
+----------------
 one start page for guest
 another for managers

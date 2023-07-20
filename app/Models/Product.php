@@ -12,35 +12,44 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
-      'name',
-      'price',
-      'ammount',
-      'properties',
+    protected $fillable = [
+        'name',
+        'price',
+        'ammount',
+        'properties',
     ];
 
-    protected $casts=[
-        'propertis'=>'array'
+    protected $with=['price'];
+
+    protected $casts = [
+        'propertis' => 'array'
     ];
 
-    public function order() : BelongsTo
+    public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class)->withDefault();
     }
 
-    public function prices() : HasMany
+    public function prices(): HasMany
     {
         return $this->hasMany(Price::class);
 
     }
 
-    public function user()
+    public function stock()
     {
-        return $this->morphOne(User::class,'stockable');
+        return $this->belongsTo(Stock::class)->withDefault();
     }
 
-    public function stockable(): MorphTo
+   /* public function user()
     {
-        return $this->morphTo();
-    }
+        return $this->morphOne(User::class, 'stockable');
+    }*/
+
+
+
+    /* public function stockable(): MorphTo
+     {
+         return $this->morphTo();
+     }*/
 }
