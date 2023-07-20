@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->string('name');
             $table->float('price')->default(0);
             $table->json('properties')->nullable();
-            $table->integer('amount')->default(0);
+            $table->integer('number_in_stock')->default(0);
             $table->foreignIdFor(Stock::class);
             $table->foreignIdFor(Order::class);
 

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
@@ -14,7 +14,7 @@ class Product extends Model
     protected $fillable = [
         'name',
         'price',
-        'amount',
+        'number_in_stock',
         'properties',
         'order_id',
         'stock_id'
@@ -26,9 +26,9 @@ class Product extends Model
         'propertis' => 'array'
     ];
 
-    public function order(): BelongsTo
+    public function orders(): BelongsToMany
     {
-        return $this->belongsTo(Order::class)->withDefault();
+        return $this->belongsToMany(Order::class);
     }
 
     public function prices(): HasMany
