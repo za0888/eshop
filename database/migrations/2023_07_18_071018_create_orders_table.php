@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->id();
             $table->string('status')->default(OrderStatus::Accepted->value);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

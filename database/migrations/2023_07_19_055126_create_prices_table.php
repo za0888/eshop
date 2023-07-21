@@ -14,7 +14,6 @@ return new class extends Migration
     {
         Schema::create('prices', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->float('number');
             $table->date('start');
             $table->date('end');
@@ -24,6 +23,9 @@ return new class extends Migration
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
+
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

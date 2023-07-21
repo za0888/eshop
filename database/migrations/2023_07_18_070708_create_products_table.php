@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->integer('number_in_stock')->default(0);
             $table->foreignIdFor(Stock::class);
             $table->foreignIdFor(Order::class);
-
+            $table->softDeletes();
 
 //            products is stocked or in the stockk  or with the user/manager
             /*$table->integer('stockable_id');

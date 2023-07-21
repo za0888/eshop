@@ -39,6 +39,8 @@ return new class extends Migration
             $table->string('disk')->default('public');
 
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 
