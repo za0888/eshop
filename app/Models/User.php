@@ -3,7 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\enums\UserState;
+use App\enums\ManagerState;
 use App\enums\UserStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -26,7 +26,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'stock_id'
+        'stock_id',
+        'phone',
+        'city',
+        'mail_address',
+        'manager_state'
+
     ];
 
     /**
@@ -48,7 +53,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
         'status'=>UserStatus::class,
-        'state'=>UserState::class,
+        'state'=>ManagerState::class,
     ];
 
     public function stock()

@@ -1,6 +1,6 @@
 <?php
 
-use App\enums\UserState;
+use App\enums\ManagerState;
 use App\Models\Stock;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -16,9 +16,15 @@ return new class extends Migration {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+
+            $table->string('phone');
+            $table->string('region');
+            $table->string('city');
+            $table->string('mail_address');
+
             $table->string('email')->unique();
-            $table->string('status')->default(UserStatus::Guest->value);
-            $table->string('state')->default(UserState::Active->value);
+            $table->string('status')->default(UserStatus::Customer->value);
+            $table->string('manager_state')->default(ManagerState::Active->value);
             $table->foreignIdFor(Stock::class);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

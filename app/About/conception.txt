@@ -1,4 +1,6 @@
-Guest создает заказ (order) на товары (products)
+
+Customer создает заказ (order) на товары (products)
+Customer with cabinet is User
 order products many to many
 sklad (main,zakaz,brak)
 После кнопки оформить заказ продукт со скада main goes to sklad zakaz

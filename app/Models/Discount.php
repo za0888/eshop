@@ -12,10 +12,11 @@ class Discount extends Model
     use SoftDeletes;
 
     protected $fillable=[
+        'state',
         'name',
         'start',
         'end',
-        'number',
+        'percent',
         'product_id'
     ];
 

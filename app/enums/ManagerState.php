@@ -2,7 +2,7 @@
 
 namespace App\enums;
 
-enum UserState: string
+enum ManagerState: string
 {
     case Active = 'active';
     case Vocation = 'vocation';
