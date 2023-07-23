@@ -18,10 +18,10 @@ class Media extends Model
         'size',
         'hashFile',
         'fileExtension',
-        'product_id'
+        'media_collection_id'
     ];
-    public function product() :BelongsTo
+    public function mediaCollection() :BelongsTo
     {
-        return $this->belongsTo(Product::class)->withDefault();
+        return $this->belongsTo(MediaCollection::class)->withDefault();
     }
 }

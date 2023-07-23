@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\MediaCollection;
 use App\Models\Product;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -27,7 +28,7 @@ return new class extends Migration
 //             Don't make it unique just clone model
                 ->nullable();
 
-            $table->foreignIdFor(Product::class)
+            $table->foreignIdFor(MediaCollection::class)
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();

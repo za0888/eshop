@@ -2,9 +2,9 @@
 
 namespace App\enums;
 
-enum DiscountState:string
+enum DiscountState: string
 {
-case Idle='idle';
-case Active='active';
-case Archiv='archiv';
+    case Idle = 'idle';
+    case Active = 'active';
+    case Archiv = 'archiv';
 }

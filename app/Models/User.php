@@ -29,8 +29,9 @@ class User extends Authenticatable
         'stock_id',
         'phone',
         'city',
+        'post_code',
         'mail_address',
-        'manager_state'
+        'manager_state',
 
     ];
 

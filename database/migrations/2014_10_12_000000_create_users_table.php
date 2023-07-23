@@ -20,11 +20,12 @@ return new class extends Migration {
             $table->string('phone');
             $table->string('region');
             $table->string('city');
-            $table->string('mail_address');
+            $table->string('post_code');
+            $table->string('mail_address')->nullable();
 
             $table->string('email')->unique();
-            $table->string('status')->default(UserStatus::Customer->value);
-            $table->string('manager_state')->default(ManagerState::Active->value);
+            $table->string('status')->nullable();
+            $table->string('manager_state')->nullable();
             $table->foreignIdFor(Stock::class);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
