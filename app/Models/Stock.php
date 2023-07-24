@@ -15,15 +15,18 @@ class Stock extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'name',
+        'user_id',
+    ];
 
     protected $casts = ['status' => StockStatus::class];
 
     protected $with = ['user'];
 
-    public function user(): HasOne
+    public function user(): BelongsTo
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function products(): HasMany

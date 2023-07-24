@@ -6,6 +6,7 @@ namespace App\Models;
 use App\enums\ManagerState;
 use App\enums\UserStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -26,10 +27,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'stock_id',
         'phone',
         'city',
         'post_code',
+        'status',
         'mail_operator_address',
         'manager_state',
 
@@ -57,9 +58,9 @@ class User extends Authenticatable
         'state'=>ManagerState::class,
     ];
 
-    public function stock()
+    public function stock():HasOne
     {
-        return $this->belongsTo(Stock::class)->withDefault();
+        return $this->hasOne(Stock::class)->withDefault();
     }
 
 /*//    user/manager is a firtual stock for products

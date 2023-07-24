@@ -1,4 +1,4 @@
-
+Stock
 Customer создает заказ (order) на товары (products)
 Customer with cabinet is User
 order products many to many

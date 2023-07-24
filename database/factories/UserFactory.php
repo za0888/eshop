@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\enums\ManagerState;
+use App\enums\UserStatus;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -25,6 +27,7 @@ class UserFactory extends Factory
             'region'=>fake()->state,
             'phone'=>fake()->phoneNumber,
             'post_code'=>fake()->postcode,
+            'city'=>fake()->city,
             'mail_operator_address'=>fake()->address(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
@@ -44,7 +47,7 @@ class UserFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'user_status' => 'admin',
+                'status' => UserStatus::Administrator->value,
             ];
         });
     }
@@ -53,7 +56,7 @@ class UserFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'user_status' => 'manager',
+                'status' => UserStatus::Manager->value,
             ];
         });
     }
@@ -62,7 +65,16 @@ class UserFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'user_status' => 'customer',
+                'status' => UserStatus::Customer->value,
+            ];
+        });
+    }
+
+    public function active(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'manager_state' => ManagerState::Active->value,
             ];
         });
     }

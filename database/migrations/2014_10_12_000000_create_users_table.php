@@ -27,7 +27,6 @@ return new class extends Migration {
             $table->string('email')->unique();
             $table->string('status')->nullable();
             $table->string('manager_state')->nullable();
-            $table->foreignIdFor(Stock::class);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
