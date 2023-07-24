@@ -28,6 +28,8 @@ return new class extends Migration {
 
             $table->timestamps();
             $table->softDeletes();
+
+            $table->unique(['state','product_id']);
         });
     }
 

@@ -33,6 +33,7 @@ return new class extends Migration
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
+//            name of the collection
             $table->string('collection')->nullable();
 
             $table->string('mime_type')->nullable();
