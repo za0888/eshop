@@ -30,7 +30,7 @@ class User extends Authenticatable
         'phone',
         'city',
         'post_code',
-        'mail_address',
+        'mail_operator_address',
         'manager_state',
 
     ];

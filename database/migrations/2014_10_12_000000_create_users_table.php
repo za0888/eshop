@@ -21,7 +21,8 @@ return new class extends Migration {
             $table->string('region');
             $table->string('city');
             $table->string('post_code');
-            $table->string('mail_address')->nullable();
+            $table->string('mail_operator_address')->nullable();
+            $table->string('mail_operator')->nullable();
 
             $table->string('email')->unique();
             $table->string('status')->nullable();
