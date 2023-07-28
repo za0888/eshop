@@ -24,14 +24,12 @@ Managers/users and guests are different tables
 for security reasons
 ----------------
 ??????????
-1 variant:product is a child for  stock and  user(manager)
- so polymorphic one to one(
+Stock is a child of User/manager (see relations in the models
 
-2 variant:
 we have  stock   case Main = 'main';
                    case Order = 'order';
                  ???  case Transport = 'transport';
-and each manager as stock( after button send has been
+and each manager is a stock( after button send has been
  pressed by manager one become responsible for the product)
  So we have 2 basic stock plus number of stocks equal to nember
   of sail managers
@@ -41,3 +39,12 @@ and each manager as stock( after button send has been
 ----------------
 one start page for guest
 another for managers
+--------------
+enum OrderStatus: string
+{
+    case Paid= 'paid';// product mark as deleted  from stock main
+    case Pending = 'pending';//stock maim
+    case Processing = 'processing';//came to stock manager
+    case Shipped = 'shipped';//remains in the stock manager
+    case Canceled = 'canceled';//get back to the stock main
+}

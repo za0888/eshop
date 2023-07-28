@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\enums\StockStatus;
+use App\Models\Stock;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +18,20 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
+//        only for main stock
+
+
         return [
-            //
+            'name'=>fake()->word,
+
+            'number_in_stock'=>10,
+
+            'properties'=>[
+                'width'=>rand(1,99),
+                'color'=>fake()->colorName
+            ],
+
+            'stock_id' => Stock::where('status', StockStatus::Main)->first(),
         ];
     }
 }

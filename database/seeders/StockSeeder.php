@@ -15,13 +15,21 @@ class StockSeeder extends Seeder
      */
     public function run(): void
     {
-        $users=User::where('status',UserStatus::Manager)->get();
-
-        foreach ($users as $user) {
-            Stock::factory()
-                ->user($user)
-                ->manager()
-                ->create();
+//        manager stocks
+        $users = User::where('status', UserStatus::Manager)->get();
+        if ($users) {
+            foreach ($users as $user) {
+                Stock::factory()
+                    ->user($user)
+                    ->manager()
+                    ->create();
+            }
         }
+
+
+//        main stock
+        Stock::factory()
+            ->main()
+            ->create();
     }
 }

@@ -17,7 +17,6 @@ class Product extends Model
 
     protected $fillable = [
         'name',
-        'price',
         'number_in_stock',
         'properties',
         'order_id',
@@ -28,7 +27,7 @@ class Product extends Model
     protected $with = ['price'];
 
     protected $casts = [
-        'propertis' => 'array'
+        'properties' => 'array'
     ];
 
     public function category(): BelongsTo
