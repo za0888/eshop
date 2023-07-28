@@ -24,7 +24,6 @@ class Product extends Model
         'category_id',
     ];
 
-    protected $with = ['price'];
 
     protected $casts = [
         'properties' => 'array'
@@ -40,11 +39,11 @@ class Product extends Model
         return $this->belongsToMany(Order::class);
     }
 
-    public function prices(): HasMany
+    /*public function prices(): HasMany
     {
         return $this->hasMany(Price::class);
 
-    }
+    }*/
 
     public function stock()
     {

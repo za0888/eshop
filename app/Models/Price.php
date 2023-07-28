@@ -20,7 +20,6 @@ class Price extends Model
         'number',
         'product_id'
     ];
-    protected $dateFormat = 'U';
 
     protected $casts = [
         'start' => 'date',

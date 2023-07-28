@@ -209,11 +209,10 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string $name
- * @property float $price
- * @property mixed|null $properties
+ * @property array|null $properties
  * @property int $number_in_stock
  * @property int $stock_id
- * @property int $order_id
+ * @property int|null $order_id
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property-read \App\Models\Category|null $category
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Discount> $discounts
@@ -235,7 +234,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereNumberInStock($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereOrderId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Product wherePrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereProperties($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereStockId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereUpdatedAt($value)
@@ -252,9 +250,9 @@ namespace App\Models{
  * @property int $id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string $name
- * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \App\enums\StockStatus $status
+ * @property int|null $user_id
+ * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Product> $products
  * @property-read int|null $products_count
  * @property-read \App\Models\User|null $user
@@ -266,8 +264,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Stock whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Stock whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Stock whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Stock whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Stock whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Stock whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Stock whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Stock withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Stock withoutTrashed()
  */
@@ -289,7 +288,6 @@ namespace App\Models{
  * @property string $email
  * @property \App\enums\UserStatus|null $status
  * @property string|null $manager_state
- * @property int $stock_id
  * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property mixed $password
  * @property string|null $remember_token
@@ -299,7 +297,7 @@ namespace App\Models{
  * @property \App\enums\ManagerState $state
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
- * @property-read \App\Models\Stock|null $stock
+ * @property-read \App\Models\Stock $stock
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
  * @property-read int|null $tokens_count
  * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
@@ -323,7 +321,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRegion($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereStockId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|User withoutTrashed()
