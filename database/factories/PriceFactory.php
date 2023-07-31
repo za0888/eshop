@@ -40,12 +40,12 @@ class PriceFactory extends Factory
         });
     }
 
-    public function archiv(): Factory
+    public function archival(): Factory
     {
         return $this->state(
             function (array $attributes) {
                 return [
-                    'status' => 'archiv',
+                    'status' => PriceStatus::Archival->value,
                 ];
             });
     }

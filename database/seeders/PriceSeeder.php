@@ -18,17 +18,17 @@ class PriceSeeder extends Seeder
         if (!$products) {
             return;
         }
-
+//by default price status is active
         foreach ($products as $product) {
             Price::factory()
                 ->for($product)
                 ->create();
 
-
+// sometimes  price status turn to archiv
             if (rand(0,1)) {
                 Price::factory()
                     ->for($product)
-                    ->archiv()
+                    ->archival()
                 ->create();
             }
         }

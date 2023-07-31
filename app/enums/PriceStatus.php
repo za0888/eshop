@@ -6,6 +6,6 @@ enum PriceStatus:string
 
 {
     case Active='active';
-    case Archiv='archiv';
+    case Archival='archival';
 }
 
