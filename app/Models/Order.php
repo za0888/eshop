@@ -13,14 +13,16 @@ class Order extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $with=['products'];
-
-    protected $casts=[
-        'status'=>OrderStatus::class
+    protected $casts = [
+        'status' => OrderStatus::class
     ];
 
-    public function products() : BelongsToMany
+    public function products(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class)
+            ->as('ordered')
+            ->withTimestamps()
+            ->withPivot('number_of_product');
+
     }
 }
