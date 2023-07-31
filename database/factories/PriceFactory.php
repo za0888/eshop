@@ -39,4 +39,14 @@ class PriceFactory extends Factory
             ];
         });
     }
+
+    public function archiv(): Factory
+    {
+        return $this->state(
+            function (array $attributes) {
+                return [
+                    'status' => 'archiv',
+                ];
+            });
+    }
 }

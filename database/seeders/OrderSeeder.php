@@ -19,12 +19,13 @@ class OrderSeeder extends Seeder
         //create 3 orders with  some products(1 each)
         foreach (range(1, 3) as $i) {
 
+        //take some products, put them in order( with the same number of each product)
+//            pending orders
             $orderProducts = $products->random(rand(1, 4));
-//take some products, put them in order
 
-                Order::factory()
-                    ->hasAttached($orderProducts, ['number_of_product' => 1])
-                    ->create();
+           $order[$i]= Order::factory()
+                ->hasAttached($orderProducts, ['number_of_product' => 1])
+                ->create();
 
         }
 

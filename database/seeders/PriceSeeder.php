@@ -22,8 +22,15 @@ class PriceSeeder extends Seeder
         foreach ($products as $product) {
             Price::factory()
                 ->for($product)
-//                ->product($product)
                 ->create();
+
+
+            if (rand(0,1)) {
+                Price::factory()
+                    ->for($product)
+                    ->archiv()
+                ->create();
+            }
         }
     }
 }
