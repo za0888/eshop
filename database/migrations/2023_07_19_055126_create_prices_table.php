@@ -26,7 +26,7 @@ return new class extends Migration
 
             $table->timestamps();
             $table->softDeletes();
-
+// each price has bo be or active or achiv
             $table->unique(['id','status']);
         });
     }
