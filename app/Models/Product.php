@@ -17,18 +17,16 @@ class Product extends Model
 
     protected $fillable = [
         'name',
+        'slug',
         'description',
-        'number_in_stock',
-        'properties',
-        'order_id',
-        'stock_id',
         'category_id',
     ];
 
 
-    protected $casts = [
-        'properties' => 'array'
-    ];
+    public function skus(): HasMany
+    {
+        return $this->hasMany(Sku::class);
+    }
 
     public function category(): BelongsTo
     {

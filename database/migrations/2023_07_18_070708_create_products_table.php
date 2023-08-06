@@ -18,11 +18,7 @@ return new class extends Migration {
             $table->string('name');
             $table->string('slug');
             $table->string('description')->nullable();
-            $table->json('properties')->nullable();
-            $table->integer('number_in_stock')->default(0);
-            $table->foreignIdFor(Stock::class);
-//            from the very beginnig product is not related to order
-            $table->foreignIdFor(Order::class)->nullable();
+
             $table->softDeletes();
 
 //            products is stocked or in the stockk  or with the user/manager

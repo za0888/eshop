@@ -48,3 +48,10 @@ enum OrderStatus: string
     case Shipped = 'shipped';//remains in the stock manager
     case Canceled = 'canceled';//get back to the stock main
 }
+//
+Change approuch
+
+https://laraveldaily.com/post/laravel-e-shop-products-options-attributes-database-structure-example
+
+about SKU
+https://sendpulse.ua/ru/support/glossary/sku

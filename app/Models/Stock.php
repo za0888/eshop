@@ -34,7 +34,10 @@ class Stock extends Model
         return $this->hasMany(Product::class);
     }
 
-
+    public function skus(): HasMany
+    {
+        return $this->hasMany(Sku::class);
+    }
 
     //    stock if not main is a virtual stock for products
     /*
