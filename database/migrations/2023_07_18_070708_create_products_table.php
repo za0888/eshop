@@ -16,6 +16,8 @@ return new class extends Migration {
             $table->id();
             $table->timestamps();
             $table->string('name');
+            $table->string('slug');
+            $table->string('description')->nullable();
             $table->json('properties')->nullable();
             $table->integer('number_in_stock')->default(0);
             $table->foreignIdFor(Stock::class);
