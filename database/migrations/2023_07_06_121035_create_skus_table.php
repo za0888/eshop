@@ -17,6 +17,7 @@ return new class extends Migration {
 
             $table->string('skucode');
             $table->string('barcode');
+            $table->float('price');
 
             $table->foreignIdFor(Stock::class)
                 ->constrained();

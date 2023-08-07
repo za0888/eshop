@@ -15,15 +15,13 @@ class Sku extends Model
     protected $fillable = [
         'skucode',
         'barcode',
+        'price',
         'stock_id',
         'product_id',
         'unit_id',
     ];
 
-    public function prices() :HasMany
-    {
-        return $this->hasMany(Price::class);
-    }
+
 
     public function stock(): BelongsTo
     {
