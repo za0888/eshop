@@ -17,12 +17,12 @@ class Order extends Model
         'status' => OrderStatus::class
     ];
 
-    public function products(): BelongsToMany
+    public function skus(): BelongsToMany
     {
         return $this->belongsToMany(Product::class)
             ->as('ordered')
             ->withTimestamps()
-            ->withPivot('number_of_product');
+            ->withPivot('number_of_ordered');
 
     }
 }

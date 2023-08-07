@@ -24,6 +24,8 @@ return new class extends Migration {
             $table->foreignIdFor(Unit::class)
                 ->constrained();
 
+            $table->integer('in_stock')->default(0);
+
             $table->timestamps();
         });
     }
