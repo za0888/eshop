@@ -11,7 +11,7 @@ return new class extends Migration {
     /**
      * Run the migrations.
      */
-//    php artisan   make:migration order_product --create order_product
+//    php artisan   make:migration order_sku --create order_sku
     public function up(): void
     {
         Schema::create('order_sku', function (Blueprint $table) {

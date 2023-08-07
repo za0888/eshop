@@ -22,12 +22,13 @@ class Price extends Model
     ];
 
     protected $casts = [
+        'value',
         'start' => 'date',
         'end' => 'date',
         'status' => PriceStatus::class,
     ];
 
-    public function product(): BelongsTo
+    public function skus(): BelongsTo
     {
         return $this->belongsTo(Product::class)->withDefault();
     }

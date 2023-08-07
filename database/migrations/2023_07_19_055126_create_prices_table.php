@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Product;
+use App\Models\Sku;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('prices', function (Blueprint $table) {
             $table->id();
-            $table->float('number');
+            $table->float('value');
             $table->date('start');
-            $table->date('end');
+            $table->date('end')->nullable();
 //            active, archiv
             $table->string('status');
-            $table->foreignIdFor(Product::class)
+
+            $table->foreignIdFor(Sku::class)
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
