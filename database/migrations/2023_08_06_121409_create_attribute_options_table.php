@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('attribute_options', function (Blueprint $table) {
             $table->id();
             $table->string('value');
+
+            $table->float('capacity')
+                ->nullable();
+
             $table->foreignIdFor(\App\Models\Attribute::class)
                 ->constrained()
                 ->cascadeOnDelete()
