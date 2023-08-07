@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('value');
 
-            $table->float('capacity')
+            $table->float('numeric_value')
                 ->nullable();
 
             $table->foreignIdFor(\App\Models\Attribute::class)
