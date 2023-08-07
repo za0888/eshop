@@ -2,6 +2,7 @@
 
 use App\Models\Product;
 use App\Models\Sku;
+use App\Models\Unit;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -25,6 +26,9 @@ return new class extends Migration
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
+
+            $table->foreignIdFor(Unit::class)
+                ->constrained();
 
             $table->timestamps();
             $table->softDeletes();

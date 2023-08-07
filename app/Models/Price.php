@@ -17,12 +17,11 @@ class Price extends Model
         'start',
         'end',
         'status',
-        'number',
+        'value',
         'product_id'
     ];
 
     protected $casts = [
-        'value',
         'start' => 'date',
         'end' => 'date',
         'status' => PriceStatus::class,
@@ -31,5 +30,10 @@ class Price extends Model
     public function skus(): BelongsTo
     {
         return $this->belongsTo(Product::class)->withDefault();
+    }
+
+    public function  unit(): BelongsTo
+    {
+        return  $this->belongsTo(Unit::class);
     }
 }
