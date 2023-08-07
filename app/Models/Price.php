@@ -18,7 +18,8 @@ class Price extends Model
         'end',
         'status',
         'value',
-        'product_id'
+        'sku_id',
+        'price_id'
     ];
 
     protected $casts = [
@@ -27,7 +28,7 @@ class Price extends Model
         'status' => PriceStatus::class,
     ];
 
-    public function skus(): BelongsTo
+    public function sku(): BelongsTo
     {
         return $this->belongsTo(Product::class)->withDefault();
     }
