@@ -2,6 +2,7 @@
 
 use App\enums\DiscountState;
 use App\Models\Product;
+use App\Models\Sku;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -20,7 +21,7 @@ return new class extends Migration {
             $table->date('start')->nullable();
             $table->date('end')->nullable();
             $table->float('percent')->nullable();
-            $table->foreignIdFor(Product::class)
+            $table->foreignIdFor(Sku::class)
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
@@ -29,7 +30,7 @@ return new class extends Migration {
             $table->timestamps();
             $table->softDeletes();
 
-            $table->unique(['state','product_id']);
+            $table->unique(['state','sku_id']);
         });
     }
 

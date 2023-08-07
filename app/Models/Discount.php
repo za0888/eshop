@@ -17,7 +17,7 @@ class Discount extends Model
         'start',
         'end',
         'percent',
-        'product_id'
+        'sku_id'
     ];
 
     protected $casts=[
