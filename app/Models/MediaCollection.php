@@ -11,9 +11,15 @@ class MediaCollection extends Model
 {
     use HasFactory;
 
-    public function product():BelongsTo
+protected $fillable=[
+    'name',
+    'sku_id',
+];
+
+    public function sku():BelongsTo
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Product::class)
+            ->withDefault();
     }
 
     public function media() :HasMany
