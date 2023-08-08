@@ -2,6 +2,7 @@
 
 use App\Models\MediaCollection;
 use App\Models\Product;
+use App\Models\Sku;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -28,7 +29,7 @@ return new class extends Migration
 //             Don't make it unique just clone model
                 ->nullable();
 
-            $table->foreignIdFor(MediaCollection::class)
+            $table->foreignIdFor(Sku::class)
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();

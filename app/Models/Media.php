@@ -18,10 +18,11 @@ class Media extends Model
         'size',
         'hashFile',
         'fileExtension',
-        'media_collection_id'
+        'media_collection_id',
+        'sku_id',
     ];
-    public function mediaCollection() :BelongsTo
+    public function sku() :BelongsTo
     {
-        return $this->belongsTo(MediaCollection::class)->withDefault();
+        return $this->belongsTo(Sku::class)->withDefault();
     }
 }

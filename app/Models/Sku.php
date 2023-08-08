@@ -41,7 +41,7 @@ class Sku extends Model
             ->withDefault();
     }
 
-    public function mediaCollections()
+    public function media()
     {
         return $this->hasMany(MediaCollection::class);
     }
