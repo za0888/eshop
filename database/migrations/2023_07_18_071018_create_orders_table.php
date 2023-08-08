@@ -1,6 +1,7 @@
 <?php
 
 use App\enums\OrderStatus;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,7 +14,11 @@ return new class extends Migration {
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('number');
+
             $table->string('status')->default(OrderStatus::Processing->value);
+
+            $table->foreignIdFor(User::class)->constrained();
 
             $table->timestamps();
             $table->softDeletes();

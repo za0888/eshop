@@ -18,7 +18,8 @@ return new class extends Migration {
             $table->string('name');
             $table->string('slug');
             $table->string('description')->nullable();
-
+            $table->foreignIdFor(\App\Models\Category::class)
+                ->constrained();
             $table->softDeletes();
 
 //            products is stocked or in the stockk  or with the user/manager

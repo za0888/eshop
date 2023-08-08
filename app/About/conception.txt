@@ -1,15 +1,16 @@
 Stock
 Customer создает заказ (order) на товары (products)
-Customer with cabinet is User
-order products many to many
-sklad (main,zakaz,brak)
-После кнопки оформить заказ продукт со скада main goes to sklad zakaz
+Customer has cabinet
+После кнопки оформить заказ продукт со скада(stock) main goes to sklad zakaz
 operator/manager  send order mark it as shiped after been payed order
 would be marked as done otherwise as  возврат или брак
 статусы заказа:
 pending,shiped,done,failed(returned),done (product softdeleted)
-Guest->many orders ->products(many-to-many)
+
 --------------
+Продукт (SKU stock keeping unit)имеет атрибуты(цвет.вес.длина) атрибут имеет опции(красный, 2 кг,...)
+сопутствующие модели Unit(штуки литры),Discont
+-----------
 restrictions:
 order only for guests
 

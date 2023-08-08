@@ -13,6 +13,12 @@ class Order extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $fillable=[
+        'status',
+        'user_id',
+        'number',
+    ];
+
     protected $casts = [
         'status' => OrderStatus::class
     ];
@@ -24,5 +30,11 @@ class Order extends Model
             ->withTimestamps()
             ->withPivot('number_of_ordered');
 
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class)
+            ->withDefault();
     }
 }

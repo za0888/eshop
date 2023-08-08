@@ -6,6 +6,7 @@ namespace App\Models;
 use App\enums\ManagerState;
 use App\enums\UserStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -57,15 +58,15 @@ class User extends Authenticatable
         'status'=>UserStatus::class,
         'state'=>ManagerState::class,
     ];
-
+//user (if manager) is a virtual stock for products
     public function stock():HasOne
     {
         return $this->hasOne(Stock::class)->withDefault();
     }
 
-/*//    user/manager is a firtual stock for products
-    public function stock() : MorphMany
+    public function orders():HasMany
     {
-        return $this->morphMany(Product::class,'stockable');
-    }*/
+        return $this->hasMany(Product::class);
+    }
+
 }

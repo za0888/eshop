@@ -33,10 +33,6 @@ class Product extends Model
         return $this->belongsTo(Category::class)->withDefault();
     }
 
-    public function orders(): BelongsToMany
-    {
-        return $this->belongsToMany(Order::class);
-    }
 
     /*public function prices(): HasMany
     {

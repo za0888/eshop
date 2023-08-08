@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Product;
 use App\Models\Stock;
 use App\Models\Unit;
 use Illuminate\Database\Migrations\Migration;
@@ -18,6 +19,9 @@ return new class extends Migration {
             $table->string('skucode');
             $table->string('barcode');
             $table->float('price');
+
+            $table->foreignIdFor(Product::class)
+                ->constrained();
 
             $table->foreignIdFor(Stock::class)
                 ->constrained();
