@@ -14,12 +14,13 @@ return new class extends Migration {
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('name');
             $table->string('slug');
             $table->string('description')->nullable();
             $table->foreignIdFor(\App\Models\Category::class)
                 ->constrained();
+
+            $table->timestamps();
             $table->softDeletes();
 
 //            products is stocked or in the stockk  or with the user/manager

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 class Discount extends Model
 {
@@ -16,8 +17,7 @@ class Discount extends Model
         'name',
         'start',
         'end',
-        'percent',
-        'sku_id'
+
     ];
 
     protected $casts=[
@@ -26,8 +26,9 @@ class Discount extends Model
 
     ];
 
-    public function product():BelongsTo
+    public function skus():BelongsToMany
     {
-        return $this->belongsTo(Product::class)->withDefault();
+        return $this->belongsToMany(Sku::class);
     }
+
 }

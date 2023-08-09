@@ -16,21 +16,20 @@ return new class extends Migration {
         Schema::create('discounts', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name');
-            $table->string('state')->default(DiscountState::Idle->value);
-            $table->date('start')->nullable();
-            $table->date('end')->nullable();
-            $table->float('percent')->nullable();
-            $table->foreignIdFor(Sku::class)
-                ->constrained()
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
+            $table->string('name')
+                ->nullable()
+                ->comment('name of Discount Action');
 
+            $table->string('state')->default(DiscountState::Idle->value);
+
+            $table->date('start')
+                ->nullable();
+
+            $table->date('end')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
 
-            $table->unique(['state','sku_id']);
         });
     }
 

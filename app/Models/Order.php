@@ -32,9 +32,8 @@ class Order extends Model
 
     }
 
-    public function user()
+    public function user():BelongsToMany
     {
-        return $this->belongsTo(User::class)
-            ->withDefault();
+        return $this->belongsToMany(User::class);
     }
 }

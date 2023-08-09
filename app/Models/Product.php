@@ -45,10 +45,7 @@ class Product extends Model
         return $this->belongsTo(Stock::class)->withDefault();
     }
 
-    public function discounts(): HasMany
-    {
-        return $this->hasMany(Discount::class);
-    }
+
 
     public function mediaCollection(): HasOne
     {
