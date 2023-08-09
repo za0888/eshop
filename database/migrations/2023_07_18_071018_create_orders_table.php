@@ -18,7 +18,6 @@ return new class extends Migration {
 
             $table->string('status')->default(OrderStatus::Processing->value);
 
-            $table->foreignIdFor(User::class)->constrained();
 
             $table->timestamps();
             $table->softDeletes();

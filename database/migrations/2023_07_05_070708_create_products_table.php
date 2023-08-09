@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Order;
 use App\Models\Stock;
 use Illuminate\Database\Migrations\Migration;
@@ -17,7 +18,8 @@ return new class extends Migration {
             $table->string('name');
             $table->string('slug');
             $table->string('description')->nullable();
-            $table->foreignIdFor(\App\Models\Category::class)
+
+            $table->foreignIdFor(Category::class)
                 ->constrained();
 
             $table->timestamps();

@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Sku::class)
             ->constrained();
+
             $table->foreignIdFor(AttributeOption::class)
             ->constrained();
+
             $table->timestamps();
         });
     }
