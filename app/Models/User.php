@@ -70,4 +70,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Product::class);
     }
 
+    public function skus():BelongsToMany
+    {
+        return $this->belongsToMany(Sku::class)->withTimestamps();
+    }
+
 }

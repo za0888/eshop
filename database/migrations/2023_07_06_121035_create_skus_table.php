@@ -3,6 +3,7 @@
 use App\Models\Product;
 use App\Models\Stock;
 use App\Models\Unit;
+use App\Models\Vendor;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -28,6 +29,8 @@ return new class extends Migration {
 
             $table->foreignIdFor(Unit::class)
                 ->constrained();
+
+            $table->foreignIdFor(Vendor::class);
 
             $table->integer('number_in_stock')->default(0);
 

@@ -17,8 +17,4 @@ class Unit extends Model
         return $this->hasMany(Sku::class);
     }
 
-    public function prices(): HasMany
-    {
-        return $this->hasMany(Price::class);
-    }
 }

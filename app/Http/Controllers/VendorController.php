@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
-use Illuminate\Http\Request;
+use App\Models\Vendor;
+use App\Http\Requests\StoreVendorRequest;
+use App\Http\Requests\UpdateVendorRequest;
 
-class OrdersController extends Controller
+class VendorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +27,7 @@ class OrdersController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreVendorRequest $request)
     {
         //
     }
@@ -34,7 +35,7 @@ class OrdersController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Order $order)
+    public function show(Vendor $vendor)
     {
         //
     }
@@ -42,7 +43,7 @@ class OrdersController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Order $order)
+    public function edit(Vendor $vendor)
     {
         //
     }
@@ -50,16 +51,15 @@ class OrdersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Order $order)
+    public function update(UpdateVendorRequest $request, Vendor $vendor)
     {
-
-
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Order $order)
+    public function destroy(Vendor $vendor)
     {
         //
     }

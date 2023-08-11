@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Attribute;
 
 return new class extends Migration
 {
@@ -18,7 +19,7 @@ return new class extends Migration
             $table->float('numeric_value')
                 ->nullable();
 
-            $table->foreignIdFor(\App\Models\Attribute::class)
+            $table->foreignIdFor(Attribute::class)
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();

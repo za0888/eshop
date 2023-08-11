@@ -45,12 +45,4 @@ class Product extends Model
         return $this->belongsTo(Stock::class)->withDefault();
     }
 
-
-
-    public function mediaCollection(): HasOne
-    {
-        return $this->hasOne(MediaCollection::class);
-    }
-
-
 }

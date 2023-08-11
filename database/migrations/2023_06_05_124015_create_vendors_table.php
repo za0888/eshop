@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\Order;
-use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order_user', function (Blueprint $table) {
-//            $table->id();
-            $table->primary(['user_id','order_id']);
-
-            $table->foreignIdFor(User::class);
-            $table->foreignIdFor(Order::class);
-
+        Schema::create('vendors', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('account');
+            $table->string('address');
+            $table->string('country')
+            ->default('Ukraine');
+            $table->string('email');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('order_user');
+        Schema::dropIfExists('vendors');
     }
 };

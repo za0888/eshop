@@ -12,6 +12,55 @@
 
 namespace App\Models{
 /**
+ * App\Models\Attribute
+ *
+ * @property int $id
+ * @property string $name
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\AttributeOption> $attributeOptions
+ * @property-read int|null $attribute_options_count
+ * @method static \Database\Factories\AttributeFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Attribute newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Attribute newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Attribute query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Attribute whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Attribute whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Attribute whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Attribute whereUpdatedAt($value)
+ */
+	class Attribute extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\AttributeOption
+ *
+ * @property int $id
+ * @property string $value
+ * @property float|null $numeric_value
+ * @property int $attribute_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Attribute $attribute
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Sku> $skus
+ * @property-read int|null $skus_count
+ * @method static \Database\Factories\AttributeOptionFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption query()
+ * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereAttributeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereNumericValue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereValue($value)
+ */
+	class AttributeOption extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Category
  *
  * @property int $id
@@ -42,16 +91,15 @@ namespace App\Models{
  * App\Models\Discount
  *
  * @property int $id
- * @property string $name
+ * @property string|null $name name of Discount Action
  * @property string $state
  * @property \Illuminate\Support\Carbon|null $start
  * @property \Illuminate\Support\Carbon|null $end
- * @property float|null $percent
- * @property int $product_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property-read \App\Models\Product $product
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Sku> $skus
+ * @property-read int|null $skus_count
  * @method static \Database\Factories\DiscountFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Discount newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Discount newQuery()
@@ -62,8 +110,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Discount whereEnd($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Discount whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Discount whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Discount wherePercent($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Discount whereProductId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Discount whereStart($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Discount whereState($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Discount whereUpdatedAt($value)
@@ -83,14 +129,14 @@ namespace App\Models{
  * @property int|null $size
  * @property string|null $fileExtension
  * @property string|null $hashFile
- * @property int $media_collection_id
+ * @property int $sku_id
  * @property string|null $collection
  * @property string|null $mime_type
  * @property string $disk
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property-read \App\Models\MediaCollection $mediaCollection
+ * @property-read \App\Models\Sku $sku
  * @method static \Database\Factories\MediaFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Media newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Media newQuery()
@@ -103,11 +149,11 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Media whereFileExtension($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Media whereHashFile($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Media whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Media whereMediaCollectionId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Media whereMimeType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Media whereNameOriginal($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Media wherePath($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Media whereSize($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Media whereSkuId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Media whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Media withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Media withoutTrashed()
@@ -117,40 +163,18 @@ namespace App\Models{
 
 namespace App\Models{
 /**
- * App\Models\MediaCollection
- *
- * @property int $id
- * @property string|null $name
- * @property int $product_id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Media> $media
- * @property-read int|null $media_count
- * @property-read \App\Models\Product $product
- * @method static \Database\Factories\MediaCollectionFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|MediaCollection newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|MediaCollection newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|MediaCollection query()
- * @method static \Illuminate\Database\Eloquent\Builder|MediaCollection whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MediaCollection whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MediaCollection whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MediaCollection whereProductId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MediaCollection whereUpdatedAt($value)
- */
-	class MediaCollection extends \Eloquent {}
-}
-
-namespace App\Models{
-/**
  * App\Models\Order
  *
  * @property int $id
+ * @property string $number
  * @property \App\enums\OrderStatus $status
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Product> $products
- * @property-read int|null $products_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Product> $skus
+ * @property-read int|null $skus_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\User> $user
+ * @property-read int|null $user_count
  * @method static \Database\Factories\OrderFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Order newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Order newQuery()
@@ -159,6 +183,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereNumber($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order withTrashed()
@@ -169,78 +194,82 @@ namespace App\Models{
 
 namespace App\Models{
 /**
- * App\Models\Price
- *
- * @property int $id
- * @property float $number
- * @property \Illuminate\Support\Carbon $start
- * @property \Illuminate\Support\Carbon $end
- * @property \App\enums\PriceStatus $status
- * @property int $product_id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property-read \App\Models\Product $product
- * @method static \Database\Factories\PriceFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|Price newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Price newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Price onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|Price query()
- * @method static \Illuminate\Database\Eloquent\Builder|Price whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Price whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Price whereEnd($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Price whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Price whereNumber($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Price whereProductId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Price whereStart($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Price whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Price whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Price withTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|Price withoutTrashed()
- */
-	class Price extends \Eloquent {}
-}
-
-namespace App\Models{
-/**
  * App\Models\Product
  *
  * @property int $id
+ * @property string $name
+ * @property string $slug
+ * @property string|null $description
+ * @property int $category_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string $name
- * @property array|null $properties
- * @property int $number_in_stock
- * @property int $stock_id
- * @property int|null $order_id
  * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property-read \App\Models\Category|null $category
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Discount> $discounts
- * @property-read int|null $discounts_count
- * @property-read \App\Models\MediaCollection|null $mediaCollection
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Order> $orders
- * @property-read int|null $orders_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Price> $prices
- * @property-read int|null $prices_count
+ * @property-read \App\Models\Category $category
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Sku> $skus
+ * @property-read int|null $skus_count
  * @property-read \App\Models\Stock|null $stock
  * @method static \Database\Factories\ProductFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Product newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Product newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Product onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Product query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereCategoryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Product whereNumberInStock($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Product whereOrderId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Product whereProperties($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Product whereStockId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Product withoutTrashed()
  */
 	class Product extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Sku
+ *
+ * @property int $id
+ * @property string $skucode
+ * @property string $barcode
+ * @property float $price
+ * @property int $product_id
+ * @property int $stock_id
+ * @property int $unit_id
+ * @property int $vendor_id
+ * @property int $number_in_stock
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\AttributeOption> $attributeOptions
+ * @property-read int|null $attribute_options_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Discount> $discounts
+ * @property-read int|null $discounts_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Media> $media
+ * @property-read int|null $media_count
+ * @property-read \App\Models\Product $product
+ * @property-read \App\Models\Stock $stock
+ * @property-read \App\Models\Unit $unit
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\User> $users
+ * @property-read int|null $users_count
+ * @method static \Database\Factories\SkuFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Sku newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Sku newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Sku query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Sku whereBarcode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sku whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sku whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sku whereNumberInStock($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sku wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sku whereProductId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sku whereSkucode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sku whereStockId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sku whereUnitId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sku whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sku whereVendorId($value)
+ */
+	class Sku extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -255,6 +284,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Product> $products
  * @property-read int|null $products_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Sku> $skus
+ * @property-read int|null $skus_count
  * @property-read \App\Models\User|null $user
  * @method static \Database\Factories\StockFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Stock newModelQuery()
@@ -271,6 +302,28 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Stock withoutTrashed()
  */
 	class Stock extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Unit
+ *
+ * @property int $id
+ * @property string $name
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Sku> $skus
+ * @property-read int|null $skus_count
+ * @method static \Database\Factories\UnitFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Unit newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Unit newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Unit query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Unit whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Unit whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Unit whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Unit whereUpdatedAt($value)
+ */
+	class Unit extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -297,6 +350,10 @@ namespace App\Models{
  * @property \App\enums\ManagerState $state
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Product> $orders
+ * @property-read int|null $orders_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Sku> $skus
+ * @property-read int|null $skus_count
  * @property-read \App\Models\Stock $stock
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
  * @property-read int|null $tokens_count
@@ -326,5 +383,33 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User withoutTrashed()
  */
 	class User extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Vendor
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $account
+ * @property string $address
+ * @property string $country
+ * @property string $email
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Database\Factories\VendorFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Vendor newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Vendor newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Vendor query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Vendor whereAccount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vendor whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vendor whereCountry($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vendor whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vendor whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vendor whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vendor whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vendor whereUpdatedAt($value)
+ */
+	class Vendor extends \Eloquent {}
 }
 

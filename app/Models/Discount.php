@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+
 class Discount extends Model
 {
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable=[
+    protected $fillable = [
         'state',
         'name',
         'start',
@@ -20,15 +21,15 @@ class Discount extends Model
 
     ];
 
-    protected $casts=[
-        'start'=>'date',
-        'end'=>'date',
+    protected $casts = [
+        'start' => 'date',
+        'end' => 'date',
 
     ];
 
     public function skus():BelongsToMany
     {
-        return $this->belongsToMany(Sku::class);
+        return $this->belongsToMany(Sku::class)->withTimestamps();
     }
 
 }

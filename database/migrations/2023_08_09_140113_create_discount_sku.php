@@ -13,7 +13,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('discount_sku', function (Blueprint $table) {
-            $table->id();
+//            $table->id();
+            $table->primary(['sku_id','discount_id']);
             $table->integer('value');
 
             $table->foreignIdFor(Sku::class)

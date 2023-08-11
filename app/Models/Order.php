@@ -32,6 +32,10 @@ class Order extends Model
 
     }
 
+// user customers, user manager
+//order must have reolation to every manager who change it
+//take it in account in update order
+//
     public function user():BelongsToMany
     {
         return $this->belongsToMany(User::class);

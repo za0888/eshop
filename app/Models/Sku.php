@@ -22,7 +22,8 @@ class Sku extends Model
 
     public function discounts(): BelongsToMany
     {
-        return $this->belongsToMany(Discount::class);
+        return $this->belongsToMany(Discount::class)
+            ->withTimestamps();
 }
 
     public function stock(): BelongsTo
@@ -45,7 +46,16 @@ class Sku extends Model
 
     public function media()
     {
-        return $this->hasMany(MediaCollection::class);
+        return $this->hasMany(Media::class);
     }
 
+    public function users():BelongsToMany
+    {
+        return $this->belongsToMany(User::class)->withTimestamps();
+    }
+
+    public function attributeOptions():BelongsToMany
+    {
+        return  $this->belongsToMany(AttributeOption::class)->withTimestamps();
+    }
 }
