@@ -20,6 +20,12 @@ class Sku extends Model
         'unit_id',
     ];
 
+    public function vendor():BelongsTo
+    {
+        return $this->belongsTo(Vendor::class)
+            ->withDefault();
+    }
+
     public function discounts(): BelongsToMany
     {
         return $this->belongsToMany(Discount::class)
