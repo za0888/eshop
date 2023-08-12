@@ -23,7 +23,7 @@ enum UserStatus: string
             static ::Accountant => "Accountant",
             static::Customer => 'Customer',
             static:: Boss => "Boss",
-            static::Stockkeeper => "Stockkeeper",
+            static::Stockkeeper => "StockKeeper",
             static ::Secretary => "Secretary"
         };
     }
