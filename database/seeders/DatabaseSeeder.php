@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             StockSeeder::class,
             CategorySeeder::class,
             ProductSeeder::class,
-//VendorSeeder::class,
+            VendorSeeder::class,
         ]);
     }
 }

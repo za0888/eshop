@@ -17,7 +17,13 @@ class VendorFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->company,
+            'account' => fake()->creditCardNumber,
+            'address' => fake()->address,
+
+            'country' => fake()->country,
+
+            'email' => fake()->companyEmail
         ];
     }
 }
