@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('attribute_options', function (Blueprint $table) {
             $table->id();
-            $table->string('value');
+            $table->string('value')
+                ->unique();
 
             $table->float('numeric_value')
+                ->unique()
                 ->nullable();
 
             $table->foreignIdFor(Attribute::class)
