@@ -21,6 +21,11 @@ return new class extends Migration {
             $table->string('barcode');
             $table->float('price');
 
+//            пф-115, L-401/ bmw-x-5
+            $table->string('label');
+
+            $table->integer('number_in_stock');
+
             $table->foreignIdFor(Product::class)
                 ->constrained();
 
@@ -32,7 +37,6 @@ return new class extends Migration {
 
             $table->foreignIdFor(Vendor::class);
 
-            $table->integer('number_in_stock')->default(0);
 
             $table->timestamps();
         });

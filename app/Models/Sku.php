@@ -44,9 +44,9 @@ class Sku extends Model
             ->withDefault();
     }
 
-    public function unit(): BelongsTo
+    public function package(): BelongsTo
     {
-        return $this->belongsTo(Unit::class)
+        return $this->belongsTo(Package::class)
             ->withDefault();
     }
 

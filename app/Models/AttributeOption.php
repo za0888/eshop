@@ -29,8 +29,5 @@ class AttributeOption extends Model
         return $this->belongsToMany(Sku::class)->withTimestamps();
     }
 
-    public function unit() :BelongsTo
-    {
-        return $this->belongsTo(Unit::class)->withDefault();
-    }
+
 }

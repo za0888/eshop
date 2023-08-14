@@ -14,21 +14,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('attribute_options', function (Blueprint $table) {
-            $table->id();
-            $table->string('value')
-                ->unique();
 
+            $table->id();
+//red
+            $table->string('value')
+            ->unique();
+//5  with unit 5ltr
             $table->float('numeric_value')
-                ->unique()
                 ->nullable();
 
             $table->foreignIdFor(Attribute::class)
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
-
-            $table->foreignIdFor(Unit::class)
-                ->constrained();
 
             $table->timestamps();
         });

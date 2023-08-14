@@ -14,7 +14,7 @@ class Unit extends Model
 
     public function attributeOptions(): HasMany
     {
-        return $this->hasMany(AttributeOption::class);
+        return $this->hasMany(Package::class);
     }
 
 }
