@@ -12,9 +12,9 @@ class Unit extends Model
 
     protected $fillable = ['name'];
 
-    public function skus(): HasMany
+    public function attributeOptions(): HasMany
     {
-        return $this->hasMany(Sku::class);
+        return $this->hasMany(AttributeOption::class);
     }
 
 }

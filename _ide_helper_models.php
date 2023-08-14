@@ -40,11 +40,13 @@ namespace App\Models{
  * @property string $value
  * @property float|null $numeric_value
  * @property int $attribute_id
+ * @property int $unit_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Attribute $attribute
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Sku> $skus
  * @property-read int|null $skus_count
+ * @property-read \App\Models\Unit $unit
  * @method static \Database\Factories\AttributeOptionFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption newQuery()
@@ -53,6 +55,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereNumericValue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereUnitId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereValue($value)
  */
@@ -237,7 +240,6 @@ namespace App\Models{
  * @property float $price
  * @property int $product_id
  * @property int $stock_id
- * @property int $unit_id
  * @property int $vendor_id
  * @property int $number_in_stock
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -253,6 +255,7 @@ namespace App\Models{
  * @property-read \App\Models\Unit $unit
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\User> $users
  * @property-read int|null $users_count
+ * @property-read \App\Models\Vendor|null $vendor
  * @method static \Database\Factories\SkuFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Sku newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Sku newQuery()
@@ -265,7 +268,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereProductId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereSkucode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereStockId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Sku whereUnitId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereVendorId($value)
  */
@@ -312,8 +314,8 @@ namespace App\Models{
  * @property string $name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Sku> $skus
- * @property-read int|null $skus_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\AttributeOption> $attributeOptions
+ * @property-read int|null $attribute_options_count
  * @method static \Database\Factories\UnitFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Unit newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Unit newQuery()
@@ -339,7 +341,7 @@ namespace App\Models{
  * @property string|null $mail_operator_address
  * @property string|null $mail_operator
  * @property string $email
- * @property \App\enums\UserStatus|null $status
+ * @property \App\enums\UserStatus $status
  * @property string|null $manager_state
  * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property mixed $password
@@ -352,6 +354,10 @@ namespace App\Models{
  * @property-read int|null $notifications_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Product> $orders
  * @property-read int|null $orders_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Spatie\Permission\Models\Permission> $permissions
+ * @property-read int|null $permissions_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Spatie\Permission\Models\Role> $roles
+ * @property-read int|null $roles_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Sku> $skus
  * @property-read int|null $skus_count
  * @property-read \App\Models\Stock $stock
@@ -361,7 +367,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|User permission($permissions)
  * @method static \Illuminate\Database\Eloquent\Builder|User query()
+ * @method static \Illuminate\Database\Eloquent\Builder|User role($roles, $guard = null)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereCity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereDeletedAt($value)
@@ -397,6 +405,8 @@ namespace App\Models{
  * @property string $email
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Sku> $skus
+ * @property-read int|null $skus_count
  * @method static \Database\Factories\VendorFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Vendor newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Vendor newQuery()
