@@ -17,7 +17,6 @@ class Sku extends Model
         'price',
         'stock_id',
         'product_id',
-        'unit_id',
     ];
 
     public function vendor():BelongsTo
