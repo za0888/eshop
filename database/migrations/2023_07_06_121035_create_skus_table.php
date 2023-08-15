@@ -32,8 +32,6 @@ return new class extends Migration {
             $table->foreignIdFor(Stock::class)
                 ->constrained();
 
-//            $table->foreignIdFor(Unit::class)
-//                ->constrained();
 
             $table->foreignIdFor(Vendor::class);
 

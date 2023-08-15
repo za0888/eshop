@@ -6,8 +6,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Attribute;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -18,7 +17,8 @@ return new class extends Migration
             $table->id();
 //red
             $table->string('value')
-            ->unique();
+                ->nullable()
+                ->unique();
 //5  with unit 5ltr
             $table->float('numeric_value')
                 ->nullable();

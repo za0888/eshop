@@ -37,7 +37,7 @@ namespace App\Models{
  * App\Models\AttributeOption
  *
  * @property int $id
- * @property string $value
+ * @property string|null $value
  * @property float|null $numeric_value
  * @property int $attribute_id
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -262,8 +262,8 @@ namespace App\Models{
  * @property string $skucode
  * @property string $barcode
  * @property float $price
- * @property string $label
  * @property int $number_in_stock
+ * @property string $location_in_stock
  * @property int $product_id
  * @property int $stock_id
  * @property int $vendor_id
@@ -288,7 +288,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereBarcode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Sku whereLabel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sku whereLocationInStock($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereNumberInStock($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku wherePrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereProductId($value)

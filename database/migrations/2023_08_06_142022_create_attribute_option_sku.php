@@ -17,7 +17,7 @@ return new class extends Migration
 //            $table->id();
             $table->primary(['attribute_option_id','sku_id']);
 
-            $table->integer('number');
+            $table->integer('number_in_stock');
 
             $table->foreignIdFor(Sku::class)
             ->constrained();

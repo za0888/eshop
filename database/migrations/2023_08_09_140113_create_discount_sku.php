@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Discount;
 use App\Models\Sku;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -20,7 +21,7 @@ return new class extends Migration
             $table->foreignIdFor(Sku::class)
             ->constrained();
 
-            $table->foreignIdFor((\App\Models\Discount::class))
+            $table->foreignIdFor((Discount::class))
             ->constrained();
 
             $table->timestamps();

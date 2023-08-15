@@ -34,15 +34,10 @@ class Product extends Model
     }
 
 
-    /*public function prices(): HasMany
-    {
-        return $this->hasMany(Price::class);
-
-    }*/
-
     public function stock()
     {
-        return $this->belongsTo(Stock::class)->withDefault();
+        return $this->belongsTo(Stock::class)
+            ->withDefault();
     }
 
 }
