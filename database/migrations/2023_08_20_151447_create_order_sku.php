@@ -15,12 +15,13 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('order_sku', function (Blueprint $table) {
-//            $table->id();
-            $table->primary(['sku_id','order_id']);
+            $table->primary(['sku_id', 'order_id']);
+//
+            $table->integer('number_of_sku');
 
             $table->foreignIdFor(Sku::class);
             $table->foreignIdFor(Order::class);
-            $table->integer('number_of_sku');
+
             $table->timestamps();
             $table->softDeletes();
 

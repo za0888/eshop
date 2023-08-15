@@ -40,13 +40,11 @@ namespace App\Models{
  * @property string $value
  * @property float|null $numeric_value
  * @property int $attribute_id
- * @property int $unit_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Attribute $attribute
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Sku> $skus
  * @property-read int|null $skus_count
- * @property-read \App\Models\Unit $unit
  * @method static \Database\Factories\AttributeOptionFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption newQuery()
@@ -55,7 +53,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereNumericValue($value)
- * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereUnitId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereValue($value)
  */
@@ -197,6 +194,33 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Package
+ *
+ * @property int $id
+ * @property string $name
+ * @property float $value
+ * @property int $unit_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Sku> $skus
+ * @property-read int|null $skus_count
+ * @property-read \App\Models\Unit|null $unit
+ * @method static \Database\Factories\PackageFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Package newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Package newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Package query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Package whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Package whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Package whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Package whereUnitId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Package whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Package whereValue($value)
+ */
+	class Package extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Product
  *
  * @property int $id
@@ -238,10 +262,11 @@ namespace App\Models{
  * @property string $skucode
  * @property string $barcode
  * @property float $price
+ * @property string $label
+ * @property int $number_in_stock
  * @property int $product_id
  * @property int $stock_id
  * @property int $vendor_id
- * @property int $number_in_stock
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\AttributeOption> $attributeOptions
@@ -250,9 +275,9 @@ namespace App\Models{
  * @property-read int|null $discounts_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Media> $media
  * @property-read int|null $media_count
+ * @property-read \App\Models\Package|null $package
  * @property-read \App\Models\Product $product
  * @property-read \App\Models\Stock $stock
- * @property-read \App\Models\Unit $unit
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\User> $users
  * @property-read int|null $users_count
  * @property-read \App\Models\Vendor|null $vendor
@@ -263,6 +288,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereBarcode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sku whereLabel($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereNumberInStock($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku wherePrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereProductId($value)
@@ -314,7 +340,7 @@ namespace App\Models{
  * @property string $name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\AttributeOption> $attributeOptions
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Package> $attributeOptions
  * @property-read int|null $attribute_options_count
  * @method static \Database\Factories\UnitFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Unit newModelQuery()
