@@ -266,6 +266,7 @@ namespace App\Models{
  * @property string $location_in_stock
  * @property int $product_id
  * @property int $stock_id
+ * @property int|null $package_id
  * @property int $vendor_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -290,6 +291,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereLocationInStock($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereNumberInStock($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sku wherePackageId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku wherePrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereProductId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereSkucode($value)

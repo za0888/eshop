@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Package;
 use App\Models\Product;
 use App\Models\Stock;
 use App\Models\Unit;
@@ -32,6 +33,8 @@ return new class extends Migration {
             $table->foreignIdFor(Stock::class)
                 ->constrained();
 
+            $table->foreignIdFor(Package::class)
+                ->nullable();
 
             $table->foreignIdFor(Vendor::class);
 
