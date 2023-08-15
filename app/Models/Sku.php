@@ -15,6 +15,7 @@ class Sku extends Model
         'skucode',
         'barcode',
         'price',
+        'location_in_stock',
         'stock_id',
         'product_id',
     ];
