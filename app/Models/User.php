@@ -32,10 +32,11 @@ class User extends Authenticatable
         'password',
         'phone',
         'city',
-        'post_code',
+        'postCode',
         'status',
-        'mail_operator_address',
-        'manager_state',
+        'mailOperatorAddress',
+        'managerState',
+        'mailOperator'
 
     ];
 
@@ -58,7 +59,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
         'status'=>UserStatus::class,
-        'state'=>ManagerState::class,
+        'managerState'=>ManagerState::class,
     ];
 //user (if manager) is a virtual stock for products
     public function stock():HasOne

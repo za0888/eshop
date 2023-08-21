@@ -39,10 +39,4 @@ class Stock extends Model
         return $this->hasMany(Sku::class);
     }
 
-    //    stock if not main is a virtual stock for products
-    /*
-        public function stock() : MorphMany
-        {
-            return $this->morphMany(Product::class,'stockable');
-        }*/
 }

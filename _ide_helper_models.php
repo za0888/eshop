@@ -38,7 +38,7 @@ namespace App\Models{
  *
  * @property int $id
  * @property string|null $value
- * @property float|null $numeric_value
+ * @property float|null $numericValue
  * @property int $attribute_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -262,8 +262,8 @@ namespace App\Models{
  * @property string $skucode
  * @property string $barcode
  * @property float $price
- * @property int $number_in_stock
- * @property string $location_in_stock
+ * @property int $numberInStock
+ * @property string $locationInStock
  * @property int $product_id
  * @property int $stock_id
  * @property int|null $package_id
@@ -366,18 +366,17 @@ namespace App\Models{
  * @property string $region
  * @property string $city
  * @property string $post_code
- * @property string|null $mail_operator_address
- * @property string|null $mail_operator
+ * @property string|null $mailOperatorAddress
+ * @property string|null $mailOperator
  * @property string $email
  * @property \App\enums\UserStatus $status
- * @property string|null $manager_state
+ * @property \App\enums\ManagerState|null $managerState
  * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property mixed $password
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property \App\enums\ManagerState $state
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Product> $orders

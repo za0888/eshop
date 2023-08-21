@@ -20,12 +20,12 @@ return new class extends Migration {
             $table->string('region');
             $table->string('city');
             $table->string('post_code');
-            $table->string('mail_operator_address')->nullable();
-            $table->string('mail_operator')->nullable();
+            $table->string('mailOperatorAddress')->nullable();
+            $table->string('mailOperator')->nullable();
 
             $table->string('email')->unique();
             $table->string('status')->default('customer');
-            $table->string('manager_state')->nullable();
+            $table->string('managerState')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

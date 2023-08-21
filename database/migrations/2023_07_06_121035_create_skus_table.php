@@ -23,8 +23,8 @@ return new class extends Migration {
             $table->float('price');
 
 //
-            $table->integer('number_in_stock');
-            $table->string('location_in_stock');
+            $table->integer('numberInStock');
+            $table->string('locationInStock');
 
 
             $table->foreignIdFor(Product::class)

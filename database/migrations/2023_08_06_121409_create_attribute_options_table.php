@@ -20,7 +20,7 @@ return new class extends Migration {
                 ->nullable()
                 ->unique();
 //5  with unit 5ltr
-            $table->float('numeric_value')
+            $table->float('numericValue')
                 ->nullable();
 
             $table->foreignIdFor(Attribute::class)

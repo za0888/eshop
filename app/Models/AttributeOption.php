@@ -14,7 +14,7 @@ class AttributeOption extends Model
 
     protected $fillable = [
         'value',
-        'numeric_value',
+        'numericValue',
         'attribute_id',
     ];
 
