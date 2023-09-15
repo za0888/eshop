@@ -36,6 +36,9 @@ return new class extends Migration {
             $table->foreignIdFor(Package::class)
                 ->nullable();
 
+            $table->foreignIdFor(Unit::class)
+                ->nullable();
+
             $table->foreignIdFor(Vendor::class);
 
 

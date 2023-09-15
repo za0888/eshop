@@ -21,6 +21,13 @@ class Sku extends Model
         'product_id',
     ];
 
+    protected $with=[
+        'stock',
+        'vendor',
+        'package',
+        'unit'
+    ];
+
     public function vendor():BelongsTo
     {
         return $this->belongsTo(Vendor::class)
@@ -48,6 +55,12 @@ class Sku extends Model
     public function package(): BelongsTo
     {
         return $this->belongsTo(Package::class)
+            ->withDefault();
+    }
+
+    public function unit():BelongsTo
+    {
+        return $this->belongsTo(Unit::class)
             ->withDefault();
     }
 

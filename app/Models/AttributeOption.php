@@ -18,15 +18,24 @@ class AttributeOption extends Model
         'attribute_id',
     ];
 
+    /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['attribute'];
 
     public function attribute(): BelongsTo
     {
-        return $this->belongsTo(Attribute::class)->withDefault();
+        return $this->belongsTo(Attribute::class)
+            ->withDefault();
     }
 
-    public function skus() :BelongsToMany
+    public function skus(): BelongsToMany
     {
-        return $this->belongsToMany(Sku::class)->withTimestamps();
+//        intermediate table must have created_at and updated_at timestamps that are automatically maintained by Eloquent,
+        return $this->belongsToMany(Sku::class)
+            ->withTimestamps();
     }
 
 
