@@ -15,6 +15,10 @@ return new class extends Migration
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name')
+                ->default('manager')
+                ->unique()
+            ;
             $table->string('status');
             $table->foreignIdFor(User::class)->nullable();
             $table->softDeletes();

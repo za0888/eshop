@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\enums\StockStatus;
 use App\enums\UserStatus;
 use App\Models\Stock;
 use App\Models\User;
@@ -28,8 +29,27 @@ class StockSeeder extends Seeder
 
 
 //        main stock
-        Stock::factory()
-            ->main()
-            ->create();
+        Stock::createOrFirst(
+            [
+                'name'=>'TRUDA16',
+                'status'=>StockStatus::Main->value
+            ]);
+//
+       Stock::createOrFirst(
+           [
+               'name'=>'Kalinova',
+               'status'=>StockStatus::Main->value
+               ]);
+
+       Stock::createOrFirst(
+           [
+               'name'=>'Kamenskoe',
+               'status'=>StockStatus::Main->value
+               ]);
+        Stock::createOrFirst(
+            [
+                'name'=>'Order',
+                'status'=>StockStatus::Order->value
+            ]);
     }
 }

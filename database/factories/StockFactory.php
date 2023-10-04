@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\enums\StockStatus;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Arr;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\stock>
@@ -18,8 +19,13 @@ class StockFactory extends Factory
      */
     public function definition(): array
     {
+        $names=[
+            'Truda16',
+            'Kalinova',
+            'Kamenskoe'
+        ];
         return [
-            'status'=>''
+            'mame'=>$names[Arr::random($names)]
         ];
     }
 

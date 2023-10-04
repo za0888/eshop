@@ -22,10 +22,10 @@ class Sku extends Model
     ];
 
     protected $with=[
-        'stock',
-        'vendor',
-        'package',
-        'unit'
+        'stock:id,name',
+        'vendor:id,name',
+        'package:id,name',
+        'unit:id,name'
     ];
 
     public function vendor():BelongsTo

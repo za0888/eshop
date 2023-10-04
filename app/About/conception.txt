@@ -1,8 +1,15 @@
 Stock
 Customer создает заказ (order) на товары (products)
 Customer has cabinet
-После кнопки оформить заказ продукт со скада(stock) main goes to sklad zakaz
-operator/manager  send order mark it as shiped after been payed order
+После кнопки оформить заказ продукт со склада(stock) main goes to sklad zakaz.
+Order get status pending
+
+Manager cabinet
+manager take order (button 'Take order') or the boss make the manager responsible for the order
+The order get status processing
+Manager  send order to mail opertor marking order Shipped.
+ Skus/продукты of the order go to the stock-manager(manager as stock).
+ As soon as order is payed skus goes from manager
 would be marked as done otherwise as  возврат или брак
 статусы заказа:
 pending,shiped,done,failed(returned),done (product softdeleted)

@@ -267,6 +267,7 @@ namespace App\Models{
  * @property int $product_id
  * @property int $stock_id
  * @property int|null $package_id
+ * @property int|null $unit_id
  * @property int $vendor_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -279,6 +280,7 @@ namespace App\Models{
  * @property-read \App\Models\Package|null $package
  * @property-read \App\Models\Product $product
  * @property-read \App\Models\Stock $stock
+ * @property-read \App\Models\Unit|null $unit
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\User> $users
  * @property-read int|null $users_count
  * @property-read \App\Models\Vendor|null $vendor
@@ -296,6 +298,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereProductId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereSkucode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereStockId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sku whereUnitId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereVendorId($value)
  */
@@ -309,6 +312,7 @@ namespace App\Models{
  * @property int $id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $name
  * @property \App\enums\StockStatus $status
  * @property int|null $user_id
  * @property \Illuminate\Support\Carbon|null $deleted_at
@@ -325,6 +329,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Stock whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Stock whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Stock whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Stock whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Stock whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Stock whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Stock whereUserId($value)
@@ -342,7 +347,7 @@ namespace App\Models{
  * @property string $name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Package> $attributeOptions
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Sku> $attributeOptions
  * @property-read int|null $attribute_options_count
  * @method static \Database\Factories\UnitFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Unit newModelQuery()
