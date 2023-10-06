@@ -1,10 +1,11 @@
-Stock
-Customer создает заказ (order) на товары (products)
-Customer has cabinet
-User push button"Order is ready" the skus goes from (stock) main goes to sklad zakaz.
+#Start
+Customer создает заказ (order) на товары (skus /stock keeping unit)
+
+###Customer  cabinet
+User push submit  button"Order is ready" the skus goes from (stock) main goes to sklad zakaz.
 Order get status pending
 
-Manager cabinet
+###Manager cabinet
 manager take order (button 'Take order') or the boss make the manager responsible for the order
 The order get status processing
 Manager  send order to mail opertor marking order Shipped.
@@ -21,9 +22,9 @@ pending,shiped,done,failed(returned),done (product softdeleted)
 restrictions:
 order only for guests
 
-Diffirent  prefix & dir for guests and employies
+Diffirent  prefix & dir for guests and managers and Boss
 ----------------
-monitor for general manage:
+monitor for general boss:
 state of orders,
 state of stocks
 ________________

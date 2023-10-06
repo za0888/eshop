@@ -16,16 +16,26 @@ class UserSeeder extends Seeder
     {
 //        create 3 users : admin manager customer
         $userAdmin = User::factory()->admin()->create();
+
         $userCustomer = User::factory()->customer()->create();
+
         $userManager = User::factory()
             ->count(3)
             ->active()
             ->manager()
             ->create();
 
+        $userBoss = User::factory()
+            ->count(1)
+            ->active()
+            ->boss()
+            ->create();
+
 //        users roles
-        $users = User::all();
+        $users = User::all('status');
+
         foreach ($users as $user) {
+
             switch ($user->status) {
 
                 case(UserStatus::Customer):
@@ -38,6 +48,10 @@ class UserSeeder extends Seeder
 
                 case(UserStatus::Administrator):
                     $user->assignRole(UserStatus::Administrator->value);
+                    break;
+
+                case(UserStatus::Boss):
+                    $user->assignRole(UserStatus::Boss->value);
                     break;
             }
         }

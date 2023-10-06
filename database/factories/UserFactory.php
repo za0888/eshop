@@ -70,6 +70,15 @@ class UserFactory extends Factory
         });
     }
 
+    public function boss(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'status' => UserStatus::Boss->value,
+            ];
+        });
+    }
+
     public function active(): Factory
     {
         return $this->state(function (array $attributes) {
