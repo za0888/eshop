@@ -61,11 +61,11 @@ class User extends Authenticatable
         'status'=>UserStatus::class,
         'managerState'=>ManagerState::class,
     ];
-//user (if manager) is a virtual stock for products
-    public function stock():HasOne
-    {
-        return $this->hasOne(Stock::class)->withDefault();
-    }
+////user (if manager) is a virtual stock for products
+//    public function stock():HasOne
+//    {
+//        return $this->hasOne(Stock::class)->withDefault();
+//    }
 
     public function orders():BelongsToMany
     {

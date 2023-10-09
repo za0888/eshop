@@ -1,5 +1,6 @@
 <?php
 
+use App\enums\SkuStatus;
 use App\Models\Package;
 use App\Models\Product;
 use App\Models\Stock;
@@ -17,7 +18,8 @@ return new class extends Migration {
     {
         Schema::create('skus', function (Blueprint $table) {
             $table->id();
-
+            $table->string('skuStatus')
+                ->default(SkuStatus::ProductProcessing);
             $table->string('skucode');
             $table->string('barcode');
             $table->float('price');

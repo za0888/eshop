@@ -39,5 +39,8 @@ class RolesAndPermissionsSeeder extends Seeder
 
         $roleAdmin=Role::create(['name' => UserStatus::Administrator->value])
             ->givePermissionTo(Permission::all());
+
+        $roleBoss=Role::create(['name' => UserStatus::Boss->value])
+            ->givePermissionTo(Permission::all());
     }
 }

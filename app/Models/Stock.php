@@ -24,10 +24,10 @@ class Stock extends Model
 
     protected $with = ['user'];
 
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
+//    public function user(): BelongsTo
+//    {
+//        return $this->belongsTo(User::class);
+//    }
 
     public function products(): HasMany
     {

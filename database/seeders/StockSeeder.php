@@ -16,40 +16,43 @@ class StockSeeder extends Seeder
      */
     public function run(): void
     {
-//        manager stocks
-        $users = User::where('status', UserStatus::Manager)->get();
-        if ($users) {
-            foreach ($users as $user) {
-                Stock::factory()
-                    ->user($user)
-                    ->manager()
-                    ->create();
-            }
-        }
+
 
 
 //        main stock
-        Stock::createOrFirst(
+        Stock::create(
             [
                 'name'=>'TRUDA16',
                 'status'=>StockStatus::Main->value
             ]);
 //
-       Stock::createOrFirst(
+       Stock::create(
            [
                'name'=>'Kalinova',
                'status'=>StockStatus::Main->value
                ]);
 
-       Stock::createOrFirst(
+       Stock::create(
            [
                'name'=>'Kamenskoe',
                'status'=>StockStatus::Main->value
                ]);
-        Stock::createOrFirst(
+
+        Stock::create(
             [
                 'name'=>'Order',
                 'status'=>StockStatus::Order->value
             ]);
+
+        //        manager stocks
+//        $users = User::where('status', UserStatus::Manager)->get();
+//        if ($users) {
+//            foreach ($users as $user) {
+//                Stock::factory()
+//                    ->user($user)
+//                    ->manager()
+//                    ->create();
+//            }
+//        }
     }
 }

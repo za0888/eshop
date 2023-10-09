@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
             ->create();
 
 //        users roles
-        $users = User::all('status');
+        $users = User::all();
 
         foreach ($users as $user) {
 

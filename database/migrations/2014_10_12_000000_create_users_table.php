@@ -25,7 +25,7 @@ return new class extends Migration {
 
             $table->string('email')->unique();
             $table->string('status')->default('customer');
-            $table->string('managerState')->nullable();
+            $table->string('managerState')->default(ManagerState::Active);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

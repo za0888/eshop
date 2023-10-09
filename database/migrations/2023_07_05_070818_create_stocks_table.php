@@ -20,7 +20,7 @@ return new class extends Migration
                 ->unique()
             ;
             $table->string('status');
-            $table->foreignIdFor(User::class)->nullable();
+//            $table->foreignIdFor(User::class)->nullable();
             $table->softDeletes();
         });
     }

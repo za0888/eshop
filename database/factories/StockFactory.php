@@ -19,14 +19,8 @@ class StockFactory extends Factory
      */
     public function definition(): array
     {
-        $names=[
-            'Truda16',
-            'Kalinova',
-            'Kamenskoe'
-        ];
-        return [
-            'mame'=>$names[Arr::random($names)]
-        ];
+
+        return [];
     }
 
     public function main(): Factory

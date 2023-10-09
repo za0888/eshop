@@ -12,6 +12,7 @@ class Sku extends Model
     use HasFactory;
 
     protected $fillable = [
+        'skuStatus',
         'skucode',
         'barcode',
         'price',
