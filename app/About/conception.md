@@ -11,21 +11,20 @@ Order get status _**Pending**_
 manager take order (button 'Take order') or the boss make the manager responsible for the order
 Relation of  models Order and User(manager) to be established
 The order get status _**processing**_
-Manager  send order to mail opertor marking _**order**_ and **_sku_** _**Shipped**_.
+Manager  send order to mail opertor marking _**order**_ as _**Shipped**_.
  
  As soon as order is **payed** 
-would be marked as **_Archiv_** otherwise as  **_faulty_**
+product would be marked as **_Archiv_** otherwise as  **_faulty_**
 
 статусы заказа:
 pending,shiped,done,failed(returned),done (product is maked as **_Archiv_**)
 
 статусы продукта(_enum_):
-- case **ProductProcessing**='product processing in stock';
-- case **Ready** = 'ready';//ready to be sold
-- case **Ordered** = 'ordered';
-- case **Shipped** ='shipped';
-- case **Faulty**='faulty'; //неисправен
-- case **Archiv**='archiv';// after been sold
+- case StockProcessing='stock processing'
+- case Ready = 'ready';//ready to be sold
+- case Ordered = 'ordered';
+- case Archiv='archiv';// after been sold
+- case Faulty='faulty'; //неисправен
 --------------
 Продукт (SKU stock keeping unit)имеет атрибуты(цвет.вес.длина) атрибут имеет опции(красный, 2 кг,...)
 сопутствующие модели Unit(штуки литры),Discont
