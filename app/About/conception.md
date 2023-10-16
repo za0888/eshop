@@ -1,15 +1,17 @@
 #Start
 Customer создает заказ (order) на товары (skus /stock keeping unit)
 push submit button"Order is ready" and **_Confirm button_**
+order to be marked as **_Pending_**
 
-###Customer  cabinet
+###Customer  cabinet)(or **_Order_** page)
 User push submit  button"**Order is confirmed**" the skus change status from **ready** to **ordered**
-Order get status pending
+Order get status _**Pending**_
 
 ###Manager cabinet
 manager take order (button 'Take order') or the boss make the manager responsible for the order
-The order get status processing
-Manager  send order to mail opertor marking _**order**_ and **_sku_** Shipped.
+Relation of  models Order and User(manager) to be established
+The order get status _**processing**_
+Manager  send order to mail opertor marking _**order**_ and **_sku_** _**Shipped**_.
  
  As soon as order is **payed** 
 would be marked as **_Archiv_** otherwise as  **_faulty_**

@@ -8,9 +8,9 @@ enum OrderStatus: string
 
     case Pending = 'pending';//stock main, not assigned to the menager
 
-    case Processing = 'processing';//came to stock manager
+    case Processing = 'processing';//came to manager
 
-    case Shipped = 'shipped';//remains in the stock manager
+    case Shipped = 'shipped';// ,mail operator , send noitification to customer
 
-    case Canceled = 'canceled';//get back to the stock main
+    case Canceled = 'canceled';//customer refused to pay for the product
 }
